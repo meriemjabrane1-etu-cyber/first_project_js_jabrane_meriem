@@ -51,8 +51,38 @@ function validFullName(name) {
 
   return true;
 }
+function isValidEmail(email) {
+  if (hasLeadingOrTrailingSpaces(email)) return false;
+  if (hasMiddleSpaces(email)) return false;
+
+  email = email.toLowerCase();
+  if (email.replaceAll(" ", "").length < 10) return false;
+
+  let atCount = email.split("@").length - 1;
+  if (atCount !== 1) return false;
+
+  let exists = users.some(u => u.email === email);
+  if (exists) return false;
+
+  return true;
+}
 
 
+function validEmail(email) {
+  email = email.trim();
 
+  if (email.includes(" ")) return false;
+
+  email = email.toLowerCase();
+
+  if (email.length < 11) return false;
+
+  let atCount = email.split("@").length - 1; //n insistiw 3la @
+  if (atCount !== 1) return false;
+
+  if (users.some(u => u.email === email)) return false;
+
+  return true;
+}
 
 
