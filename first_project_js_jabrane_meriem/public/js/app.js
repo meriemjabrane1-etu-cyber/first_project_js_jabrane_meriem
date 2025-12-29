@@ -75,7 +75,7 @@ function validEmail(email) {
 
   email = email.toLowerCase();
 
-  if (email.length < 11) return false;
+  if (email.length < 10) return false;
 
   let atCount = email.split("@").length - 1; //n insistiw 3la @
   if (atCount !== 1) return false;
@@ -84,5 +84,28 @@ function validEmail(email) {
 
   return true;
 }
+function validAge(age) {
+  if (hasMiddleSpaces(age)){
+    return false;} 
+  if (!/^\d+$/.test(age)) return false;
+  if (age.length === 0 || age.length >= 3) return false;
+  return true;
+}
 
 
+
+
+
+
+
+let nameInput = prompt("Enter Full Name:");
+if (!validFullName(nameInput)) {
+  alert("Invalid Name");
+} else {
+  users.push({
+    name: nameInput,
+    email: "",     
+    age: 0,
+  });
+  alert("Account created successfully!");
+}
