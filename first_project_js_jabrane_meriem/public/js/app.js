@@ -79,7 +79,7 @@ function validAge(age) {
     }
   }
 
-  return true;
+  return true
 }
 
 function validPassword(password) {
@@ -119,7 +119,7 @@ function signUp() {
   let password = prompt("Enter Password:")
   if (!validPassword(password)) {
     alert("Invalid Password")
-    return;
+    return
   }
 
   let confirm = prompt("Confirm Password:")
