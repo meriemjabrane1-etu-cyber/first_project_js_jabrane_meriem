@@ -138,51 +138,51 @@ function signUp() {
     loan: 0,
     investment: 0,
     history: []
-  });
+  })
   alert("lomour medbota")
 }
 function login() {
-  let email = prompt("Enter Email:");
-  let user = findUserByEmail(email);
+  let email = prompt("Enter Email:")
+  let user = findUserByEmail(email)
   if (!user) {
-    alert("Email not found");
+    alert("Email not found")
     return;
   }
 
-  let password = prompt("Enter Password:");
+  let password = prompt("Enter Password:")
   if (password !== user.password) {
-    alert("Wrong password");
+    alert("Wrong password")
     return;
   }
 
-  applyLoanPenalty(user);
-  applyInvestmentProfit(user);
+  applyLoanPenalty(user)
+  applyInvestmentProfit(user)
 
-  bankMenu(user);
+  bankMenu(user)
 }
 //~ changePassword 
 function changePassword() {
-  let email = prompt("Enter your Email:");
-  let user = findUserByEmail(email);
+  let email = prompt("Enter your Email:")
+  let user = findUserByEmail(email)
   if (!user) {
-    alert("Email not found");
-    return;
+    alert("Email not found")
+    return
   }
 
-  let newPassword = prompt("Enter New Password:");
+  let newPassword = prompt("Enter New Password:")
   if (!validPassword(newPassword)) {
-    alert("Invalid Password");
-    return;
+    alert("Invalid Password")
+    return
   }
 
-  let confirm = prompt("Confirm New Password:");
+  let confirm = prompt("Confirm New Password:")
   if (confirm !== newPassword) {
-    alert("Passwords do not match");
-    return;
+    alert("Passwords do not match")
+    return
   }
 
-  user.password = newPassword;
-  alert("Password updated successfully!");
+  user.password = newPassword
+  alert("Password updated successfully!")
 }
 // console.log(email, age, password)
 
