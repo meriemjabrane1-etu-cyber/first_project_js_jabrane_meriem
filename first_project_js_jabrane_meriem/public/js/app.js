@@ -1,5 +1,5 @@
 
-let users = []                                                                                      
+let users = []
 
 function Spaces(str) {
   return str !== str.trim()
@@ -141,7 +141,49 @@ function signUp() {
   });
   alert("lomour medbota")
 }
+function login() {
+  let email = prompt("Enter Email:");
+  let user = findUserByEmail(email);
+  if (!user) {
+    alert("Email not found");
+    return;
+  }
 
+  let password = prompt("Enter Password:");
+  if (password !== user.password) {
+    alert("Wrong password");
+    return;
+  }
+
+  applyLoanPenalty(user);
+  applyInvestmentProfit(user);
+
+  bankMenu(user);
+}
+//~ changePassword 
+function changePassword() {
+  let email = prompt("Enter your Email:");
+  let user = findUserByEmail(email);
+  if (!user) {
+    alert("Email not found");
+    return;
+  }
+
+  let newPassword = prompt("Enter New Password:");
+  if (!validPassword(newPassword)) {
+    alert("Invalid Password");
+    return;
+  }
+
+  let confirm = prompt("Confirm New Password:");
+  if (confirm !== newPassword) {
+    alert("Passwords do not match");
+    return;
+  }
+
+  user.password = newPassword;
+  alert("Password updated successfully!");
+}
 // console.log(email, age, password)
 
 while (true) {
